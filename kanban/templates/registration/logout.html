@@ -1,0 +1,17 @@
+{% extends 'kanban/kanban_base.html' %}
+
+{% block title %} Kanban Logout {% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="card p-4 shadow-sm text-center">
+        <h2 class="mb-4">Are you sure you want to logout?</h2>
+        
+        <form method="post">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-danger">Logout</button>
+            <input type="hidden" name="next" value="{{ next }}">
+        </form>
+    </div>
+</div>
+{% endblock %}

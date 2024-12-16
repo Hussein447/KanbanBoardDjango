@@ -1,0 +1,43 @@
+{% extends 'kanban/kanban_base.html' %}
+
+{% block title %} Kanban Login {% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="card p-4 shadow-sm">
+        <h2 class="text-center mb-4">Login</h2>
+
+        {% if form.errors %}
+        <div class="alert alert-danger" role="alert">
+            Your username and password didn't match. Please try again.
+        </div>
+        {% endif %}
+
+        {% if next %}
+            {% if user.is_authenticated %}
+            <div class="alert alert-warning" role="alert">
+                Your account doesn't have access to this page. Please login with an account that has access.
+            </div>
+            {% else %}
+            <div class="alert alert-info" role="alert">
+                Please login to see this page.
+            </div>
+            {% endif %}
+        {% endif %}
+
+        <form method="post" action="{% url 'accounts-login' %}">
+            {% csrf_token %}
+            <div class="mb-3">
+                <label for="username" class="form-label">{{ form.username.label_tag }}</label>
+                {{ form.username|add_class:"form-control" }}
+            </div>
+            <div class="mb-3">
+                <label for="password" class="form-label">{{ form.password.label_tag }}</label>
+                {{ form.password|add_class:"form-control" }}
+            </div>
+            <input type="hidden" name="next" value="{{ next }}">
+            <button type="submit" class="btn btn-primary w-100">Login</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

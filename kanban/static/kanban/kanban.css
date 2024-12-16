@@ -1,0 +1,100 @@
+/* تحسين العناوين */
+h6 {
+    line-height: 1.2em;
+    font-weight: bold;
+}
+
+h4 {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #007bff;
+}
+
+/* تحسين الفواصل */
+hr {
+    height: 3px;
+    width: 90%;
+    background: #007bff;
+    border: none;
+}
+
+/* تحسين الفقرات */
+p {
+    margin-top: 0.2em;
+    margin-bottom: 0.6em;
+    font-size: 1em;
+    color: #333;
+}
+
+/* تصميم قائمة المهام */
+.kanban-tasklist {
+    width: 23%;  /* توزيع الأعمدة بشكل متساوٍ */
+    min-width: 200px;  /* عرض أدنى لضمان ظهور جيد */
+    margin: 10px;
+    background-color: #f8f9fa;
+    border: 2px solid #007bff;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+}
+
+/* تأثيرات عند التمرير */
+.kanban-tasklist:hover {
+    background-color: #e9ecef;
+    transform: scale(1.02);
+}
+
+/* تصميم اللوحة الفردية للمهام */
+.kanban-tasklist-taskpanel {
+    background: white;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-left: 5px solid #007bff;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease-in-out;
+}
+
+.kanban-tasklist-taskpanel:hover {
+    background: #e9ecef;
+}
+
+/* تحسين الأزرار والروابط */
+.btn {
+    padding: 8px 12px;
+    font-size: 14px;
+    border-radius: 5px;
+}
+
+a {
+    text-decoration: none;
+    color: #007bff;
+}
+
+a:hover {
+    color: #0056b3;
+}
+
+/* تحسين العناوين */
+h4, h6 {
+    font-weight: bold;
+    color: #007bff;
+}
+
+h4 {
+    font-size: 1.8em;
+}
+
+h6 {
+    font-size: 1.3em;
+    margin-bottom: 0.5em;
+}
+
+/* فواصل مخصصة */
+hr {
+    height: 3px;
+    width: 90%;
+    background: #007bff;
+    border: none;
+}

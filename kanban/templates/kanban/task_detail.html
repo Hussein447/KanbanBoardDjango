@@ -1,0 +1,48 @@
+{% extends 'kanban/kanban_base.html' %}
+
+{% block title %} Task: {{ task.title }} {% endblock %}
+
+{% block content %}
+<div class="card p-4 mt-5 shadow-sm">
+    <h2 class="text-center text-primary">Task: {{ task.title }}</h2>
+
+    <p><strong>Status:</strong> {{ task.get_status_display }}</p>
+
+    <div class="mb-3">
+        <a href="{% url 'task-edit' task.uuid %}" class="btn btn-primary btn-sm">Edit</a>
+        <a href="{% url 'index' %}" class="btn btn-secondary btn-sm">Back To Board</a>
+    </div>
+
+    <hr>
+
+    <p>
+        <strong>Description:</strong><br>
+        {{ task.description }}
+    </p>
+
+    <p>
+        <strong>Comments:</strong><br>
+        <a href="{% url 'taskcomment-add-specific' task_pk=task.uuid %}" class="btn btn-outline-success btn-sm">Add Comment</a>
+    </p>
+
+    {% if task.taskcomment_set.all %}
+        <ul class="list-group mt-3">
+            {% for task_comment in task.taskcomment_set.all %}
+                <li class="list-group-item">
+                    <p>{{ task_comment.text }}</p>
+                    <small class="text-muted">{{ task_comment.author }} - {{ task_comment.date_created }}</small>
+                    <a href="{% url 'taskcomment-edit-specific' pk=task_comment.pk %}" class="btn btn-sm btn-link">Edit</a>
+                </li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+    <hr>
+
+    <p>
+        <strong>Author:</strong> {{ task.author }} <br>
+        <strong>Date Created:</strong> {{ task.date_created }} <br>
+        <strong>Last Modified:</strong> {{ task.date_modified }}
+    </p>
+</div>
+{% endblock %}
